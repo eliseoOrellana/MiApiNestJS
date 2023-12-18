@@ -3,6 +3,35 @@ Ejemplo: git clone <https://link-con-nombre-del-repositorio>
 
 git branch: Comando para crear listar y eliminar ramas
 Ejemplo para crear una nueva rama: git branch <nombre-de-la-rama>
+Ejemplo para visualizar ramas: git branch 
+Ejemplo para borrar una rama: git branch -d <nombre-de-la-rama>
+Ejemplo para hacer push de la rama al repositorio: git push <nombre-remoto> <nombre-rama>
+
+git checkout: Comando para cambiar de una rama a otra, tambien se puede utilizar para chequear archivos y commits.
+Ejemplo para cambiarse a una rama: git checkout <nombre-de-la-rama>
+Ejemplo para crear y cambiarse a la misma rama: git checkout -b <nombre-de-tu-rama>
+
+git status: Comando que nos ofrece informacion necesaria sobre la rama actual
+Ejemeplo: git status
+
+git add: Comando para incluir cambios del o de los archivos de manera local
+Ejemplo: git add <archivo>
+
+git commit: Comando para guardar cambios especificando un punto de control en el proceso
+Ejemplo: git commit -m "mensaje de confirmación"
+
+git push: Enviar cambios al servidor remoto, envio los commits al repositorio remoto
+Ejemplo: git push <nombre-remoto> <nombre-de-tu-rama>
+
+git pull: Comando que se utiliza para recibir actualizaciones del repositorio remoto
+Ejemplo: git pull <nombre-remoto>
+
+git revert: Comando para revertir cambios que hemos hecho
+Ejemplo: git revert <codigo-del-commit>
+
+git merge: Comando para fusionar la rama con la rama maestra
+Ejemplo: git merge <nombre-de-la-rama>
+
 
 
 
