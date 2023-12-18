@@ -1,0 +1,9 @@
+git clone: Comando para clonar repositorio remoto.
+Ejemplo: git clone <https://link-con-nombre-del-repositorio>
+
+git branch: Comando para crear listar y eliminar ramas
+Ejemplo para crear una nueva rama: git branch <nombre-de-la-rama>
+
+
+
+
