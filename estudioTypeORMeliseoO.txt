@@ -1,8 +1,0 @@
-
-revision video de estudio resumen 38. Nest.js: Introducción a TypeORM      https://www.youtube.com/watch?v=AeaQRY8xFPk
-
-revision documentacion oficial de typeORM   https://typeorm.io/
-
-revision documentacion nest.js y TypeORM,       https://docs.nestjs.com/techniques/database#typeorm-transactions
-
-Nestjs TypeORM con MySQL Tutorial         https://www.youtube.com/watch?v=W4_oH3anYHU&t=343s
