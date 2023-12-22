@@ -26,8 +26,7 @@ export class CategoriasService {
     return await this.categoriesRepository.save(producto);
   }
 
-  //hola
-
+  
   async findAll() {
     return await this.categoriesRepository.find({
       relations: ['productos']});
