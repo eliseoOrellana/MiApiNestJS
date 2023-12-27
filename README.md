@@ -1,7 +1,4 @@
 # cq-api
-"Hola"
-"que tal"
-"Bien y tu?"
-"todo bien gracias"
+"instalacion de Nest"
 # testing
 # testing 2
