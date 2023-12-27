@@ -10,7 +10,7 @@ export class ApiService {
   //Copiar la url de la api
   private urlApi = 'https://rickandmortyapi.com/api/character/1,183';
 
-  //Se llama a la clase hhtpclient para poder usar sus metodos http
+  //Se llama a la clase httpclient para poder usar sus metodos http
   constructor(private http: HttpClient) { }
 
   //metodo para obtener los datos de la api
