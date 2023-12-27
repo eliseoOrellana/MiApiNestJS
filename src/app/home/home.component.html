@@ -1,9 +1,17 @@
 <div>
-    <h2>Data API The Rick and Morty</h2>
+    <h1>Data API The Rick and Morty</h1>
     
     <div class="row">
         <div *ngFor="let item of data" >
-            <p>{{item.name}}</p>
+            <h2>Nombre: {{item.name}}</h2>
+            <img src="{{item.image}}" alt="">
+            <p>Estado:{{item.status}}</p>
+            <p>Especie:{{item.species}}</p>
+            <p>Genero:{{item.gender}}</p>
+            <p>Origen:{{item.origin.name}}</p>
+            <p>Localizacion: {{item.location.name}}</p>
+            <p>Episodios: {{item.episode.length}}</p>
+            <hr>
 
         </div>
     </div>

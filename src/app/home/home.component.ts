@@ -10,7 +10,7 @@ export class HomeComponent {
 
   //Se crea un arreglo para guardar los datos de la api, si es objeto se utiliza [] 
   //si fuera un objeto seria con {}
-  data: any[] = [];
+  data: any = [];
 
 
   constructor(private apiService: ApiService) { }
@@ -18,10 +18,10 @@ export class HomeComponent {
   //Se llama al metodo llenarData para que se ejecute al cargar la pagina
   //ngOnInit es un metodo que se ejecuta al cargar la pagina
   ngOnInit(): void {
-    this.llenarData();
+    this.filldata();
   }
 
-  llenarData(){
+  filldata(){
     //Se llama al metodo getData de la clase apiService
     this.apiService.getData().subscribe((data) => {
       //Se guarda la respuesta de la api en el arreglo data
