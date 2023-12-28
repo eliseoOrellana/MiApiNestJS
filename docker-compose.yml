@@ -1,0 +1,42 @@
+version: "3.8"
+services:
+  mysql:
+    env_file:
+      - .env
+    image: mysql
+    restart: always
+    ports:
+      - '3307:3306'
+    volumes:
+    - ./mysql:/var/lib/mysql
+
+
+  development:
+    env_file:
+      - .env
+    build:
+        target: development
+        context: .
+    image: product-category:development
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+        - .:/usr/src/app
+    depends_on:
+        - mysql
+
+  production:
+    env_file:
+      - .env
+    build:
+      target: production
+      context: .
+    image: product-category:production
+    restart: always
+    ports:
+      - '3000:3000'
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - mysql
