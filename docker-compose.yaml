@@ -12,14 +12,14 @@ services:
       - ./mysql:/var/lib/mysql
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
-    container_name: phpmyadminproductoscategorias
+    container_name: phpmyadmin
     restart: always 
     environment:
       PMA_HOST: mysql
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: 1234
     ports:
-      - 8080:80
+      - 8081:80
     depends_on:
       - mysql
   development:
@@ -32,7 +32,7 @@ services:
     volumes:
       - ./src:/usr/src/app/src
     ports: 
-      - 3000:3000
+      - 3003:3000
     depends_on:
       - mysql
       - phpmyadmin
@@ -44,7 +44,7 @@ services:
     container_name: production
     restart: always
     ports: 
-      - 3001:3000
+      - 3004:3000
     depends_on:
       - mysql
       - phpmyadmin
