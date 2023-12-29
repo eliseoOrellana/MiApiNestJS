@@ -1,13 +1,10 @@
 version: '3.8'
 
-# los servisios son los multiples contenedores
 services: 
   mysqldb:
     image: mysql
-    environment:
-        # atributo donde se le menciona el password 
+    environment: 
       - MYSQL_ROOT_PASSWORD=123456
-        # atributo para que cree la base de datos
       - MYSQL_DATABASE=midatabase
     ports:
       - "3307:3306"
