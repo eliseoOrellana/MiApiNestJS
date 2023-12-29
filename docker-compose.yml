@@ -1,9 +1,10 @@
 version: '3.8'
 
 services: 
-  mysqldb:
+  mysql:
     image: mysql
-    environment: 
-      .env
+    environment:
+    - MYSQL_ROOT_PASSWORD=123456
+    - MYSQL_DATABASE=api-product-category
     ports:
       - "3307:3306"
