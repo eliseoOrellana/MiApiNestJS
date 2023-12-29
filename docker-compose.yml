@@ -1,9 +1,11 @@
 version: '3.8'
 
-services: 
+services:
   mysqldb:
     image: mysql
-    environment: 
-      .env
+    env_file:
+      - .env
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_PASSWORD}
     ports:
       - "3307:3306"
