@@ -1,0 +1,50 @@
+version: '3.8'
+services:
+  mysql: 
+    image: mysql:5.7
+    container_name: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadminproductoscategorias
+    restart: always 
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: 1234
+    ports:
+      - 8080:80
+    depends_on:
+      - mysql
+  development:
+    build:
+      context: .
+      target: development
+      dockerfile: Dockerfile
+    container_name: development
+    restart: always
+    volumes:
+      - ./src:/usr/src/app/src
+    ports: 
+      - 3000:3000
+    depends_on:
+      - mysql
+      - phpmyadmin
+  production:
+    build:
+      context: .
+      target: production
+      dockerfile: Dockerfile
+    container_name: production
+    restart: always
+    ports: 
+      - 3001:3000
+    depends_on:
+      - mysql
+      - phpmyadmin
