@@ -13,7 +13,7 @@ export class ProductsController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: string): Promise<Product> {
+  async findOne(@Param('id') id: number): Promise<Product> {
     return this.productsService.findOne(+id);
   }
 
@@ -23,12 +23,12 @@ export class ProductsController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() updateProductDto: ProductDto): Promise<Product> {
+  async update(@Param('id') id: number, @Body() updateProductDto: ProductDto): Promise<Product> {
     return this.productsService.update(+id, updateProductDto);
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: string): Promise<void> {
+  async remove(@Param('id') id: number): Promise<void> {
     return this.productsService.remove(+id);
   }
 }
