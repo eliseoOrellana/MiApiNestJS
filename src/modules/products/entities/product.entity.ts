@@ -12,9 +12,6 @@ export class Product {
     @Column()
     description: string;
 
-    @Column({ type: 'decimal', precision: 10, scale: 2 })
-    price: number;
-
     @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;
 }
