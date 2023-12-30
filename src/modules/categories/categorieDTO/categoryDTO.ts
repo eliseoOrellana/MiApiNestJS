@@ -1,4 +1,4 @@
-export class CreateCategoryDto {
+export class CategoryDTO {
     name: string;
     description: string;
     createdAt: Date;
