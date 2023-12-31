@@ -1,10 +1,58 @@
 version: '3.8'
 
-services: 
-  mysql:
+services:
+  db:
     image: mysql
+    restart: always
     environment:
-    - MYSQL_ROOT_PASSWORD=123456
-    - MYSQL_DATABASE=api-product-category
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_USER: ${DATABASE_USER}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     ports:
-      - "3307:3306"
+      - "${DATABASE_PORT}:${DATABASE_PORT_DOCKER}"
+    volumes:
+      - "./db:/var/lib/mysql"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin3
+    restart: always
+    environment:
+      PMA_HOST: ${DATABASE_HOST}
+      PMA_PORT: ${DATABASE_PORT}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    ports:
+      - 8080:80
+    depends_on:
+      - db
+
+  development:
+    build:
+      target: development
+      context: .
+    image: development
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '3000:3000'
+    volumes:
+      - ".:/usr/src/app"
+    depends_on:
+      - db
+      - phpmyadmin
+
+  production:
+    build:
+      target: production
+      context: .
+    image: production
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - '3001:3000'
+    depends_on:
+      - db
+      - phpmyadmin
