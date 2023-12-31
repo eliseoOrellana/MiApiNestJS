@@ -29,5 +29,8 @@ export class CategoriesService {
         return this.categoryRepository.delete({id});
     }
 
+    updateCategory(id: number, category: CreateCategoryDto){
+        return this.categoryRepository.update({id}, category);
+    }
 
 }
