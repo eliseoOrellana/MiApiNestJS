@@ -8,11 +8,11 @@ import { ProductsModule } from './modules/products/products.module';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost',
-      port: 3307,
+      host: 'db',
+      port: 3306,
       username: 'root',
-      password: '123456',
-      database: 'api-product-category',
+      password: '1234',
+      database: 'producto-categoria',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
