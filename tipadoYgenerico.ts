@@ -5,7 +5,9 @@ let booleanVar: boolean = true; // Declaración de una variable booleana
 
 // Arrays y Tuplas
 let numberArray: number[] = [1, 2, 3]; // Declaración de un array de números
-let tuple: [string, number] = ["Texto", 42]; // Declaración de una tupla con string y número
+let tuple: Tuple[]= [["Texto", 42, ],["hola",7]]; // Declaración de una tupla con string y número
+
+type Tuple = [string, number] 
 
 // Objetos
 let person: { name: string, age: number } = { name: "Juan", age: 25 }; // Declaración de un objeto con propiedades name y age
@@ -28,8 +30,11 @@ function identity<T>(valor: T): T {
     return valor; // Función genérica que devuelve el mismo valor que recibe
 }
 
-let numberIdentity: number = identity(5); // Uso de la función genérica con un número
-let textIdentity: string = identity("Hello"); // Uso de la función genérica con un texto
+let cosa: string | number = 'hugo galaz'
+
+
+let numberIdentity: boolean = identity<boolean>(true); // Uso de la función genérica con un número
+let textIdentity: string = identity<string>("Hello"); // Uso de la función genérica con un texto
 
 // Clases Genéricas
 class Container<T> {
