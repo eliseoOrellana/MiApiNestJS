@@ -17,8 +17,11 @@ export class Product {
     @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;
 
+    @Column({ type: 'datetime', nullable: true })
+    deletedAt: Date;
+
     @ManyToMany(() => Category, category => category.products)
-  @JoinTable()
-  categories: Category[];
+    @JoinTable()
+    categories: Category[];
 
 }

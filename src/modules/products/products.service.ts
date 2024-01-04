@@ -40,7 +40,7 @@ export class ProductsService {
   }
 
   async remove(id: number): Promise<void> {
-    const result = await this.productsRepository.delete(id);
+    const result = await this.productsRepository.softDelete(id);
     if (result.affected === 0) {
       throw new NotFoundException(`Product with id ${id} not found`);
     }

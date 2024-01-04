@@ -8,7 +8,9 @@ import { ProductsModule } from './modules/products/products.module';
 import { CategoriesModule } from './modules/categories/categories.module';
 
 @Module({
+  
   imports: [
+    ConfigModule.forRoot(),
     TypeOrmModule.forRootAsync({
       imports:[ConfigModule],
       inject: [ConfigService],
@@ -23,6 +25,7 @@ import { CategoriesModule } from './modules/categories/categories.module';
         synchronize: configService.get<string>('NODE_ENV') === 'development', // Sincronizar solo en entorno de desarrollo
       }),
     }),
+
     ProductsModule,
     CategoriesModule,
   ],

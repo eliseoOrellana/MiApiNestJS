@@ -37,7 +37,7 @@ export class CategoriesService {
   }
 
   async remove(id: number): Promise<void> {
-    const result = await this.categoriesRepository.delete(id);
+    const result = await this.categoriesRepository.softDelete(id);
 
     if (result.affected === 0) {
       throw new NotFoundException(`Category with id ${id} not found`);
@@ -47,5 +47,5 @@ export class CategoriesService {
 
 
 
-  
+
 }
