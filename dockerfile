@@ -8,10 +8,6 @@ RUN npm install
 COPY . .
 RUN ["npm", "run", "build"]
 
-# Run migrations during build
-RUN ["npm", "run", "typeorm:generate"]
-RUN ["npm", "run", "typeorm:run"]
-
 # Development stage
 FROM --platform=linux/amd64 node:20.10.0-alpine as development
 
