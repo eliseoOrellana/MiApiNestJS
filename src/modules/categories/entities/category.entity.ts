@@ -1,14 +1,22 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm";
+import { Product } from "src/modules/products/entities/product.entity";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany,} from "typeorm";
 
-@Entity({name: 'categories'})
+@Entity({ name: 'categories' })
 export class Category {
 
     @PrimaryGeneratedColumn()
     id: number;
-    @Column()    
+
+    @Column()
     name: string;
+
     @Column()
     description: string;
-    @Column({type: 'datetime', default: () => 'CURRENT_TIMESTAMP'})
+
+    @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     createAt: Date;
+
+    @ManyToMany(() => Product, product => product.categories)
+    products: Product[];
+
 }
