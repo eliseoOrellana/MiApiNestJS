@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Put, Delete, ParseIntPipe } from '@nestjs/common';
 import { CategoriesService } from './categories.service';
 import { Category } from './entities/category.entity';
 import { CategoryDTO } from './categorieDTO/categoryDTO';
@@ -14,7 +14,7 @@ export class CategoriesController {
   }
 
   @Get(':id')
-  async findOne(@Param('id') id: number): Promise<Category> {
+  async findOne(@Param('id', ParseIntPipe) id: number): Promise<Category> {
     return this.categoriesService.findOne(id);
   }
 
@@ -24,12 +24,12 @@ export class CategoriesController {
   }
 
   @Put(':id')
-  async update(@Param('id') id: number, @Body() updateCategoryDto: CategoryDTO): Promise<Category> {
+  async update(@Param('id', ParseIntPipe) id: number, @Body() updateCategoryDto: CategoryDTO): Promise<Category> {
     return this.categoriesService.update(id, updateCategoryDto);
   }
 
   @Delete(':id')
-  async remove(@Param('id') id: number): Promise<void> {
+  async remove(@Param('id', ParseIntPipe) id: number): Promise<void> {
     return this.categoriesService.remove(id);
   }
 }
