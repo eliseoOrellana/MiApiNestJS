@@ -5,7 +5,7 @@
     "paths": {
       "@app/*": ["src/app/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@environments/*": ["src/environments/*"],  // Corregido el error tipográfico aquí
+      "@environments/*": ["src/environments/*"],  
       "@characters/*": ["src/app/components/pages/characters/*"],
       "@pages/*": ["src/app/components/pages/*"]
     },
