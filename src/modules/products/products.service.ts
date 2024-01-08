@@ -44,6 +44,6 @@ export class ProductsService {
     if (result.affected === 0) {
       throw new NotFoundException(`Product with id ${id} not found`);
     }
-
+    
   }
 }

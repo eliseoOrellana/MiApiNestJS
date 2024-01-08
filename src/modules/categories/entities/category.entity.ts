@@ -1,5 +1,5 @@
 import { Product } from "src/modules/products/entities/product.entity";
-import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, CreateDateColumn, DeleteDateColumn,} from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, JoinTable, CreateDateColumn, DeleteDateColumn, UpdateDateColumn,} from "typeorm";
 
 @Entity({ name: 'categories' })
 export class Category {
@@ -13,10 +13,10 @@ export class Category {
     @Column()
     description: string;
 
-    @CreateDateColumn({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+    @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     createdAt: Date;
 
-    @DeleteDateColumn({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
+    @Column({ type: 'datetime', default: () => 'CURRENT_TIMESTAMP' })
     updatedAt: Date;
 
     @DeleteDateColumn({ type: 'datetime', nullable: true })
