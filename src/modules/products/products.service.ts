@@ -1,6 +1,6 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { IsNull, Repository } from 'typeorm';
 
 import { Product } from './entities/product.entity';
 import { ProductDto } from './productDTO/productDTO';
@@ -14,7 +14,7 @@ export class ProductsService {
   ) {}
 
   async findAll(): Promise<Product[]> {
-    return this.productsRepository.find();
+    return this.productsRepository.find({ where: { deletedAt: IsNull() } });
   }
 
  
