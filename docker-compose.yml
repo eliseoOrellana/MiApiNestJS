@@ -7,22 +7,21 @@ services:
     env_file:
       - .env
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DATABASE_NAME}
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: producto-categoria
       
     ports:
       - 3306:3306
-    volumes:
-      - "./mysql:/var/lib/mysql"
+    # volumes:
+    #   - "./mysql2:/var/lib/mysql"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin3
     restart: always
     environment:
-      PMA_HOST: ${DATABASE_HOST}
-      PMA_PORT: ${DATABASE_PORT}
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: 1234
     ports:
       - 8080:80
     depends_on:
