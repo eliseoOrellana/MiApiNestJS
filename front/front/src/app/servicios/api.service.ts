@@ -10,11 +10,26 @@ export class ProductsService {
   url:string = 'http://localhost:3000/api/v1/';
 
   constructor(
-    private http: HttpClient) { }
+    private http: HttpClient
+    ) { }
 
   public getProducts(): Observable<any>{
     return this.http.get(this.url + 'productos');
   }
+
+
+  public addProduct(producto: any): Observable<any>{
+    return this.http.post(this.url + 'productos', producto);
+  }
+
+  public getCategorias(): Observable<any>{
+    return this.http.get(this.url + 'categorias');
+  }
+
+  public deleteProduct(id: number): Observable<any>{
+    return this.http.delete(this.url + 'productos/' + id);
+  }
+  
 }
 
 
