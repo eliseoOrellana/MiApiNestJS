@@ -1,26 +1,25 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductsService } from '../servicios/api.service';
-import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { get } from 'http';
+import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { ProductsService } from '../../servicios/api.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrl: './home.component.css'
+  selector: 'app-add-product',
+  templateUrl: './add-product.component.html',
+  styleUrl: './add-product.component.css'
 })
-export class HomeComponent implements OnInit {
-  data: any = [];
+export class AddProductComponent implements OnInit {
   form!: FormGroup; 
+  data: any = [];
   categorias: any = [];
-  deleteForm!: FormGroup;
 
   constructor(private formBuilder: FormBuilder, private apiService: ProductsService) { 
     
   } 
 
   ngOnInit(): void {
-    this.getProducts();
-    this.getCategorias();
+    this.apiService.getCategorias().subscribe((data)=>{
+      this.categorias = data;
+    });
 
     this.form = this.formBuilder.group({
       name: new FormControl(''),
@@ -28,30 +27,15 @@ export class HomeComponent implements OnInit {
       categorias: new FormArray([]),
     });
 
-    this.deleteForm = this.formBuilder.group({
-      id: ['']
-    });
-
 
   }
 
-  getProducts(){
-    this.apiService.getProducts().subscribe((data)=>{
-      this.data = data;
-    });
-  }
-
-  addProduct(){
+   addProduct(){
     this.apiService.addProduct(this.form.value).subscribe((data)=>{
       this.data = data;
     });
   }
 
-  getCategorias() {
-    this.apiService.getCategorias().subscribe((categorias) => {
-      this.categorias = categorias;
-    });
-  }
 
   onCheckboxChange(e:any) {
     const categorias: FormArray = this.form.get('categorias') as FormArray;
@@ -69,29 +53,5 @@ export class HomeComponent implements OnInit {
       });
     }
   }
-
-  deleteProduct(id: number){
-    this.apiService.deleteProduct(id).subscribe((data)=>{
-      this.data = data;
-      console.log(this.data);
-    });
-  }
-  
 }
-
-
-
-
-
-
-  
-
-
-
-
-  
-
-
-  
-
 
