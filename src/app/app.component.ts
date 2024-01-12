@@ -11,5 +11,5 @@ import { NavComponent } from './components/nav/nav.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'angular-http-interceptors';
+  title = 'poke-api-with-interceptor';
 }
