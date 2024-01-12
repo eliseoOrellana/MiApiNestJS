@@ -16,20 +16,20 @@
     });
 
     const streaming = async() => {
-    try{
-        const sitio = await fetch("https://rickandmortyapi.com/api/character")
-        .then(res => res.json())
-        .then(response => {
-            const listRick = document.getElementById('list-rick');
-            listRick.innerHTML = response.results.map(data => `<li>${data.name}</li>`).join('');
-            console.log(response.results);
-        })
-        .catch( error => {
-            console.log("ERROR")
-        });
-    }catch(error){
-        console.log(error);
-    }};
+        try{
+            const sitio = await fetch("https://rickandmortyapi.com/api/character")
+            .then(res => res.json())
+            .then(response => {
+                const listRick = document.getElementById('list-rick');
+                listRick.innerHTML = response.results.map(data => `<li>${data.name}</li>`).join('');
+                console.log(response.results);
+            })
+            .catch( error => {
+                console.log("ERROR")
+            });
+        }catch(error){
+            console.log(error);
+        }};
     streaming();
 </script>
 <body>
