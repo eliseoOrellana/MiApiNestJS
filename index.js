@@ -5,8 +5,6 @@ const mysql = require("mysql2");
 const app = express();
 const port = 3000;
 
-//Mensaje que quiero que salga cuando inicia correctamente
-app.listen(port, () => console.log("Funciona"));
 
 //tiene que ver con el otro tutorial arreglar
 app.set("view engine", "ejs");
