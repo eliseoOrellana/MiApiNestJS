@@ -1,11 +1,19 @@
 <app-home/>
-<h1>Agregar producto</h1>
-<form [formGroup]="form" (ngSubmit)="addProduct()">
-    <input type="text" formControlName="name" placeholder="Nombre">
-    <input type="text" formControlName="description" placeholder="Descripción">
-    <label *ngFor="let categoria of categorias">
-        <input type="checkbox" [value]="categoria.id" (change)="onCheckboxChange($event)">
-        {{categoria.name}}
-    </label>
-    <button type="submit">Agregar producto</button>
-</form>
+<div class="container">
+    <h1 class="my-4">Agregar producto</h1>
+    <form [formGroup]="form" (ngSubmit)="addProduct()" class="mb-3">
+        <div class="form-group">
+            <input type="text" formControlName="name" placeholder="Nombre" class="form-control">
+        </div>
+        <div class="form-group">
+            <input type="text" formControlName="description" placeholder="Descripción" class="form-control">
+        </div>
+        <div class="form-group">
+            <label *ngFor="let categoria of categorias" class="checkbox-inline">
+                <input type="checkbox" [value]="categoria.id" (change)="onCheckboxChange($event)">
+                {{categoria.name}}
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Agregar producto</button>
+    </form>
+</div>

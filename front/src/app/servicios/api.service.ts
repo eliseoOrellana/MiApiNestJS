@@ -32,6 +32,10 @@ export class ProductsService {
     return this.http.post(this.url + 'categorias', categoria);
   }
   
+
+  public updateProduct(id: number, product: any): Observable<any> {
+    return this.http.patch(this.url + 'productos/' + id, product);
+  }
 }
 
 

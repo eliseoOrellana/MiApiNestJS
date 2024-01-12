@@ -1,6 +1,10 @@
 <app-home/>
-<h1>Eliminar producto</h1>
-<form [formGroup]="deleteForm" (ngSubmit)="deleteProduct(deleteForm.get('id')?.value)">
-    <input type="text" formControlName="id" placeholder="ID del producto">
-    <button type="submit">Eliminar producto</button>
-</form>
+<div class="container">
+    <h1 class="my-4">Eliminar producto</h1>
+    <form [formGroup]="deleteForm" (ngSubmit)="deleteProduct(deleteForm.get('id')?.value)" class="mb-3">
+        <div class="form-group">
+            <input type="text" formControlName="id" placeholder="ID del producto" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-danger">Eliminar producto</button>
+    </form>
+</div>
