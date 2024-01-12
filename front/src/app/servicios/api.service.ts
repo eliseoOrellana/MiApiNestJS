@@ -27,6 +27,10 @@ export class ProductsService {
   public deleteProduct(id: number): Observable<any>{
     return this.http.delete(this.url + 'productos/' + id);
   }
+
+  public addCategory(categoria: any): Observable<any>{
+    return this.http.post(this.url + 'categorias', categoria);
+  }
   
 }
 

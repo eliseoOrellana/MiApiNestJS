@@ -1,2 +1,9 @@
 <app-home/>
 <h1>Agregar categoria</h1>
+<div>
+    <form [formGroup]="form" (ngSubmit)="addCategory()">
+        <input type="text" formControlName="name" placeholder="Nombre">
+        <input type="text" formControlName="description" placeholder="Descripción">
+        <button type="submit">Agregar producto</button>
+    </form>
+</div>

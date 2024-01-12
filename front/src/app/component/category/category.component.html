@@ -1,2 +1,11 @@
 <app-home/>
-<h1>Mostrar categorias</h1>
+<div>
+    <h1>Categorias</h1> 
+    <div class="row">
+            <div *ngFor="let categoria of categorias">
+                <p>Categoria: {{categoria.name}}</p>
+                <p>Descripcion categoria: {{categoria.description}}</p>
+            <hr>
+        </div>
+    </div>
+</div>
