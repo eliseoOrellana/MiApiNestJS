@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<head>
+    <title>Todo App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<script>
+    // script que permite que los datos se vean en la lista
+    document.addEventListener('DOMContentLoaded', function (){
+        fetch('/tareas')
+        .then(response => response.json())
+        .then(todo => {
+            const listaTareas = document.getElementById('lista-tareas');
+            listaTareas.innerHTML = todo.map(task => `<tr><td>${task.id}</td><td>${task.name}</td></tr>`).join('');
+        });
+    });
+
+    const streaming = async() => {
+    try{
+        const sitio = await fetch("https://rickandmortyapi.com/api/character")
+        .then(res => res.json())
+        .then(response => {
+            const listRick = document.getElementById('list-rick');
+            listRick.innerHTML = response.results.map(data => `<li>${data.name}</li>`).join('');
+            console.log(response.results);
+        })
+        .catch( error => {
+            console.log("ERROR")
+        });
+    }catch(error){
+        console.log(error);
+    }};
+    streaming();
+</script>
+<body>
+    <div class="container" style="padding: 100px;">
+    <h2>To-Do List</h2>
+        <div>
+            <form action="/agregar-tarea" method="POST">
+                <input type="text" name="tarea" id="tarea" required>
+                <button type="submit" class="btn btn-primary" onclick=""> Agregar</button>
+            </form>
+        </div>
+        <div style="padding-top: 20px;">
+            <h4>Tareas por hacer:</h4>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nombre</th>
+                    </tr>
+                </thead>
+                <tbody id="lista-tareas"></tbody>
+            </table>
+        </div>
+    </div>
+        <div class="container" style="padding: 100px;">
+            <h3>Lista de personajes Rick and Morty</h3>
+            <ul class="list" id="list-rick" style="padding-top: 10px;"></ul>
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+</body>
