@@ -1,4 +1,28 @@
 import fs from 'node:fs/promises'
+import fetch from 'node-fetch'
+
+//Utilizar api rick and morty utilizando promesas
+
+function ApiRick(){
+    return fetch('https://rickandmortyapi.com/api/episode')
+    .then((r) => {
+        if(!r.ok){ //mandar mensaje si la api no funciona
+            console.log('Error de la api')
+        }
+        return r.json();
+    })
+    .catch((error) => {
+        console.log(error)
+    });
+}
+
+ApiRick()
+.then((data) => {
+    console.log(data);
+})
+.catch((error) => {
+    console.error(error)
+});
 
 //Ejemplo: Crear un archivo de texto plano usando un objeto Promise en Node.js.
 
@@ -22,12 +46,7 @@ writefileprom
 
 // Leer txt con con promesa
 
-
-function readfile(r){
-    return fs.readFile(r, 'utf-8');
-}
-
-readfile('./hola.txt')
+fs.readFile('./hola.txt', 'utf8')
     .then((c) => {
         console.log('Contenido: ', c);
     })
@@ -35,12 +54,4 @@ readfile('./hola.txt')
         console.log('Error: ', err)
     });
 
-// ejercicio de callback con promesasa
 
-// let array3 = [{name : 'sergio'}, {name: 'fulano'}, {name:'pepe'}];
-
-// function buscarpepe(){
-//     for(let i=0; i<arr.length; i++){
-//         return console.log('Pepe buscado')
-//     }
-// }
