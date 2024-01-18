@@ -6,7 +6,7 @@ function primero (segundo){
 }
 
 function segundo(){
-    console.log('segudno')
+    console.log('segundo')
 }
 
 primero(segundo);
