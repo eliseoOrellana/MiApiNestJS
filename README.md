@@ -1,7 +1,1 @@
-# cq-api
-"Hola"
-"que tal"
-"Bien y tu?"
-"todo bien gracias"
-# testing
-# testing 2
+# int this project we are learning promises from javascript
